@@ -22,7 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/lakes', [LakeController::class, 'index'])->name('lakes');
 
+Route::get('/assigned/{id}', [LakeController::class, 'assigned'])->name('assigned');
+
 Route::post('/ticket', [TicketController::class, 'store'])->name('ticket.store');
 
-
 Route::get('/ticket/{link}', [TicketController::class, 'index'])->name('ticket.view');
+
+Route::get('/all', [TicketController::class, 'all'])->name('all');

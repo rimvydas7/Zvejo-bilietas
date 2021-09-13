@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class TicketAssignedLakes extends Model
 {
-    private $ticketId;
-    private $lakeId;
     use HasFactory;
 
     protected $fillable = [

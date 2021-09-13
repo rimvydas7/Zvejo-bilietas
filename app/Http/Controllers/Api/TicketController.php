@@ -12,33 +12,25 @@ use Illuminate\Http\Request;
 
 class TicketController extends Controller
 {
-    // https://tavodoemas.com/api/ticket/123456554
-    public function index($link)
+    public function index()
     {
-//        $ticket = Ticket::all();
-//        return $ticket;
-//        return Ticket::all();
-//        $ticket = Ticket::all();
-//        return Ticket::where('link');
-//        return Ticket::all()->first()->where('link', $link);
-//        response()->json(['link'=>$link]);
         return response()->json( Ticket::all()->last());
+    }
 
-//        return $ticket;
+    public function all()
+    {
+        return response()->json( Ticket::all());
     }
 
     public function store(Request $request)
     {
-//        $this->validate($request,[
-//            'first_name' => 'required|max:255',
-//            'last_name' => 'required|max:255',
-//            'date' => 'required',
-//            'days' => 'required',
-//            'quantity' => 'required',
-//        ]);
-//        $link = '';
-//
-//        $link = rand(100000000, 999999999);
+        $this->validate($request,[
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'date' => 'required',
+            'days' => 'required',
+            'quantity' => 'required',
+        ]);
 
         $data = Ticket::create([
             'first_name' => $request['first_name'],

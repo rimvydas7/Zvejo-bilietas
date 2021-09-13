@@ -1,11 +1,17 @@
 <template>
+    <div>
+        <Nav/>
     <div class="main">
-        <h1>Molėtų regiono žvejo bilieto leidimo uzsakymas</h1>
-        <h2>Zvejo megejo bilietas</h2>
-        <h3>Zvejo duomenys :</h3>
+        <h1>Molėtų regiono žvejo bilieto užsakymas</h1>
+        <h2>Žvejo mėgėjo bilietas</h2>
+        <h3>Žvejo duomenys :</h3>
+        <div class="redText" v-if="first_name === '' || last_name === ''
+        || date === '' || days === '' || quantity === '' || this.assignedLakes === ''">Visi laukai turi buti uzpildyti</div>
         <div>
             <label>Vardas *</label>
             <input name="first_name" placeholder="Vardas" v-model="first_name">
+        </div>
+        <div>
             <label>Pavarde *</label>
             <input name="last_name" placeholder="Pavarde" v-model="last_name">
         </div>
@@ -13,31 +19,38 @@
         <h3>Laikotarpis</h3>
         <div>
             <div>
-                <label>Nuo kada ketinate zvejoti :</label>
+                <label>Nuo kada ketinate žvejoti *</label>
                 <input type="date" name="date" v-model="date">
             </div>
             <div>
-                <label>Zvejybos dienu skaicius :</label>
+                <label>Žvejybos dienu skaicius *</label>
                 <input type="number" name="days" v-model="days">
             </div>
             <div>
-                <label>Meskeriu skaicius :</label>
+                <label>Meskeriu skaicius *</label>
                 <input type="number" name="quantity" v-model="quantity">
             </div>
         </div>
-        <h2>Pasirinkite ezerus :</h2>
+        <h2>Pasirinkite ežerus *</h2>
 
         <div v-for="(lake, index) in lakes" :key="index">
-            <div @click="getId(lake)"  :value="lake.id">{{ lake.name }}</div>
+            <div class="lake" @click="getId(lake)"  :value="lake.id">{{ lake.name }}</div>
         </div>
 
+
+
         <div><button @click="send()">Toliau</button></div>
+    </div>
     </div>
 </template>
 
 <script>
+import Nav from "./Nav";
 export default {
     name: "FormComponent",
+    components: {
+      Nav
+    },
     data () {
         return {
             first_name: '',
@@ -100,6 +113,38 @@ export default {
 <style scoped>
 
 .main {
+    background-color: steelblue;
+    width: 50%;
+    margin: 30px auto;
+    border: 1px solid #4b4a4a;
+    border-radius: 20px;
+    padding: 30px;
+}
+input {
+    width: 100%;
+}
+.lake {
     border: 1px solid black;
+    border-radius: 20px;
+    max-width: 10%;
+    text-align: center;
+    padding: 5px;
+    margin: 3px;
+    cursor: pointer;
+}
+.lake:hover{
+    border: 1px solid white
+}
+button {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.redText {
+    color: #902727;
 }
 </style>
