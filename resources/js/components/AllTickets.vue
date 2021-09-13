@@ -12,7 +12,7 @@
                 </div>
                 <h3>Laikotarpis</h3>
                 <div>
-                    <p>Leidimo isdavimo data :  {{ticket.date}}</p>
+                    <p>Leidimo isdavimo data :  {{ticket.updated_at.replace('.000000Z', '')}}</p>
                     <p>Leidimas galioja :  {{ticket.days}} diena(s)</p>
                     <p>Meskeriu skaicius: {{ticket.quantity}}</p>
                 </div>

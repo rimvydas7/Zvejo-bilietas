@@ -2119,7 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
     fetch("http://127.0.0.1:8000/api/lakes").then(function (res) {
       return res.json();
     }).then(function (data) {
-      _this.lakes = data; // console.log(this.lakes)
+      _this.lakes = data;
     });
   },
   methods: {
@@ -2130,7 +2130,6 @@ __webpack_require__.r(__webpack_exports__);
         return res.json();
       }).then(function (data) {
         _this2.assignedLakes = data;
-        console.log(data);
       });
     },
     get: function get() {
@@ -2139,9 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
       fetch("http://127.0.0.1:8000/api/ticket/" + this.$route.params.link).then(function (res) {
         return res.json();
       }).then(function (data) {
-        console.log(data);
         _this3.tickets = data;
-        console.log(_this3.tickets);
       });
     }
   }
@@ -2268,6 +2265,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "FormComponent",
@@ -2283,7 +2281,8 @@ __webpack_require__.r(__webpack_exports__);
       quantity: '',
       code: '',
       lakes: {},
-      assignedLakes: []
+      assignedLakes: [],
+      error: ''
     };
   },
   created: function created() {
@@ -2293,13 +2292,11 @@ __webpack_require__.r(__webpack_exports__);
       return res.json();
     }).then(function (data) {
       _this.lakes = data;
-      console.log(_this.lakes);
     });
   },
   methods: {
     getId: function getId(lake) {
       this.assignedLakes.push(lake);
-      console.log(this.assignedLakes);
     },
     send: function send() {
       var _this2 = this;
@@ -2327,7 +2324,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         _this2.code = data.link;
 
-        _this2.$router.push('/about/' + _this2.code);
+        if (_this2.first_name === '' || _this2.last_name === '' || _this2.date === '' || _this2.days === '' || _this2.quantity === '') {
+          _this2.error = 'Visi laukai privalo buti uzpildyti';
+        } else {
+          _this2.$router.push('/about/' + _this2.code);
+        }
       });
     }
   }
@@ -38812,7 +38813,10 @@ var render = function() {
           _vm._v(" "),
           _c("div", [
             _c("p", [
-              _vm._v("Leidimo isdavimo data :  " + _vm._s(this.tickets.date))
+              _vm._v(
+                "Leidimo isdavimo data :  " +
+                  _vm._s(this.tickets.updated_at.replace(".000000Z", ""))
+              )
             ]),
             _vm._v(" "),
             _c("p", [
@@ -38896,7 +38900,10 @@ var render = function() {
               _vm._v(" "),
               _c("div", [
                 _c("p", [
-                  _vm._v("Leidimo isdavimo data :  " + _vm._s(ticket.date))
+                  _vm._v(
+                    "Leidimo isdavimo data :  " +
+                      _vm._s(ticket.updated_at.replace(".000000Z", ""))
+                  )
                 ]),
                 _vm._v(" "),
                 _c("p", [
@@ -39121,6 +39128,8 @@ var render = function() {
               )
             ])
           }),
+          _vm._v(" "),
+          _c("p", { staticClass: "redText" }, [_vm._v(_vm._s(_vm.error))]),
           _vm._v(" "),
           _c("div", [
             _c(

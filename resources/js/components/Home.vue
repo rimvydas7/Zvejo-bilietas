@@ -37,6 +37,7 @@
             <div class="lake" @click="getId(lake)"  :value="lake.id">{{ lake.name }}</div>
         </div>
 
+        <p class="redText">{{error}}</p>
 
 
         <div><button @click="send()">Toliau</button></div>
@@ -61,6 +62,7 @@ export default {
             code: '',
             lakes: {},
             assignedLakes: [],
+            error : ''
         }
     },
     created() {
@@ -68,13 +70,11 @@ export default {
             .then((res) => res.json())
             .then((data) => {
                 this.lakes = data
-                console.log(this.lakes)
             })
     },
     methods: {
         getId(lake) {
             this.assignedLakes.push(lake)
-            console.log(this.assignedLakes)
         },
         send() {
             const link = Math.random();
@@ -103,7 +103,11 @@ export default {
             .then((res) => res.json())
             .then((data) => {
                 this.code = data.link
-                this.$router.push('/about/' + this.code)
+                if(this.first_name === '' || this.last_name === '' || this.date === '' || this.days === '' || this.quantity === '') {
+                    this.error = 'Visi laukai privalo buti uzpildyti'
+                } else {
+                    this.$router.push('/about/' + this.code)
+                }
             });
         }
     },

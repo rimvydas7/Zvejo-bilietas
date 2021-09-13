@@ -12,7 +12,7 @@
             </div>
             <h3>Laikotarpis</h3>
             <div>
-                <p>Leidimo isdavimo data :  {{this.tickets.date}}</p>
+                <p>Leidimo isdavimo data :  {{this.tickets.updated_at.replace('.000000Z', '')}}</p>
                 <p>Leidimas galioja :  {{this.tickets.days}} diena(s)</p>
                 <p>Meskeriu skaicius: {{this.tickets.quantity}}</p>
             </div>
@@ -55,7 +55,6 @@ export default {
             .then((res) => res.json())
             .then((data) => {
                 this.lakes = data
-                // console.log(this.lakes)
             })
     },
 
@@ -65,7 +64,6 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     this.assignedLakes = data
-                    console.log(data)
                 })
         },
 
@@ -73,9 +71,7 @@ export default {
             fetch("http://127.0.0.1:8000/api/ticket/" + this.$route.params.link)
                 .then(res => res.json())
                 .then(data => {
-                        console.log(data)
                         this.tickets = data
-                    console.log(this.tickets)
                 }
                 );
         }
