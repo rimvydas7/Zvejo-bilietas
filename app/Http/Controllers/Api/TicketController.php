@@ -38,7 +38,7 @@ class TicketController extends Controller
             'date' => $request['date'],
             'days' => $request['days'],
             'quantity' => $request['quantity'],
-            'price' => $request['price'] = 1 + $request['days'] + $request['quantity'],
+            'price' => $request['price'] = $request['days'] + $request['quantity'],
             'link' => $request['link']
         ]);
 

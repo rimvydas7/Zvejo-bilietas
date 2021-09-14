@@ -2,7 +2,6 @@
     <div class="menu">
         <div class="flex">
             <p @click="home">Pagrindinis</p>
-            <p @click="all">Visi bilietai</p>
         </div>
     </div>
 </template>
@@ -14,9 +13,6 @@ export default {
         home() {
             this.$router.push('/')
         },
-        all(){
-            this.$router.push('/all')
-        }
     }
 }
 </script>
@@ -24,22 +20,21 @@ export default {
 
 <style scoped>
 .menu {
-    background-image: url('https://www.weizmann.ac.il/WeizmannCompass/sites/WeizmannCompass/files/styles/main_image/public/compass_water_952x460px.jpg?itok=yyYkx34J');
-    padding: 30px;
+    background-color: rgba(40, 102, 6, 0.85);
+    padding: 5px;
     text-align: center;
 }
 .flex {
-    display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .menu p {
-    color: white;
+    color: black;
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
     padding: 0 30px;
 }
 .menu p:hover {
-    color: black;
+    color: white;
 }
 </style>

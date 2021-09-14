@@ -25,6 +25,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "jspdf": "^2.3.1",
+        "qrcode.vue": "^3.3.2",
+        "vue-qr": "^2.5.0",
         "vue-router": "^3.5.2"
     }
 }

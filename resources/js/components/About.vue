@@ -1,52 +1,64 @@
 <template>
-    <div>
+    <div class="image">
         <Nav/>
         <div class="main">
             <h1>Molėtų regiono žvejo bilieto patvirtinimas</h1>
             <h2>Žvejo mėgėjo bilietas</h2>
-            <h3>Žvejo duomenys :</h3>
 
+            <h3>Žvejo duomenys :</h3>
             <div>
-                <p>Vardas : {{this.tickets.first_name}}</p>
-                <p>Pavarde : {{this.tickets.last_name}}</p>
+                <p>Vardas : {{this.ticket.first_name}}</p>
+                <p>Pavarde : {{this.ticket.last_name}}</p>
             </div>
+
             <h3>Laikotarpis</h3>
             <div>
-                <p>Leidimo isdavimo data :  {{this.tickets.updated_at.replace('.000000Z', '')}}</p>
-                <p>Leidimas galioja :  {{this.tickets.days}} diena(s)</p>
-                <p>Meskeriu skaicius: {{this.tickets.quantity}}</p>
+                <p>Leidimo isdavimo data :  {{this.ticket.updated_at.replace('T', ' ').replace('.000000Z', '')}}</p>
+                <p>Leidimas galioja :  {{this.ticket.days}} diena(s)</p>
+                <p>Meskeriu skaicius: {{this.ticket.quantity}}</p>
             </div>
-            <h2>Pasirinkti ežerai : </h2>
 
+            <h2>Pasirinkti ežerai : </h2>
             <div v-for="(lake, index) in lakes" :key="index">
                 <div v-if="lake.id === assignedLakes.lake_id">
-                    <div class="lake">{{lake.name}}</div>
+                    <div @select="lake.name" class="lake">{{lake.name}}</div>
                 </div>
             </div>
 
-            <h3>Leidimo kaina - {{this.tickets.price}} Eur</h3>
+            <h3>Leidimo kaina - {{this.ticket.price}} Eur</h3>
+
+            <div class="pdf">
+                <button @click="downloadPDF">Atsisiusti PDF faila</button>
+            </div>
+            <vue-qr :size=this.size :text=this.ticket.link :callback="test"></vue-qr>
         </div>
+
     </div>
 </template>
 
 <script>
 
+import jsPDF from 'jspdf';
 import Nav from "./Nav";
+import VueQr from 'vue-qr';
 
 export default {
 
     name: "ExampleComponent",
     components: {
+        VueQr,
         Nav,
     },
     data () {
         return {
             arr: {},
-            tickets: [],
+            ticket: [],
             assignedLakes: {},
-            lakes: {}
+            lakes: {},
+            size: 200,
+            value: 'http://127.0.0.1:8000/about/'+ this.$route.params.link,
+            qrImg : ''
         }
-
     },
     created () {
         this.get()
@@ -57,10 +69,42 @@ export default {
                 this.lakes = data
             })
     },
-
     methods: {
+        test(url,id){
+
+            url = this.value;
+            id = this.ticket.id;
+            console.log(url, id)
+        },
+        downloadPDF() {
+
+            console.log(this.assignedLakes);
+            let pdf = new jsPDF();
+
+            let text = `
+                        Moletu regiono žvejo bilieto patvirtinimas
+
+                                 Žvejo megejo bilietas
+
+        Žvejo duomenys :
+
+            Vardas : ${this.ticket.first_name}
+            Pavarde : ${this.ticket.last_name}
+
+        Laikotarpis:
+
+            Leidimo isdavimo data :  ${this.ticket.updated_at.replace('T', ' ').replace('.000000Z', '')}
+            Leidimas galioja :  ${this.ticket.days} diena(s)
+            Meskeriu skaicius: ${this.ticket.quantity}
+
+        Leidimo kaina : ${this.ticket.price}.00 Eur`
+
+            pdf.text(text, 10, 10);
+            pdf.save('info.pdf');
+        },
+
         assigned() {
-            fetch('http://127.0.0.1:8000/api/assigned/' + this.tickets.id)
+            fetch('http://127.0.0.1:8000/api/assigned/' + this.ticket.id)
                 .then(res => res.json())
                 .then(data => {
                     this.assignedLakes = data
@@ -71,9 +115,8 @@ export default {
             fetch("http://127.0.0.1:8000/api/ticket/" + this.$route.params.link)
                 .then(res => res.json())
                 .then(data => {
-                        this.tickets = data
-                }
-                );
+                        this.ticket = data
+                });
         }
     }
 }
@@ -81,9 +124,12 @@ export default {
 </script>
 
 <style scoped>
-
+.image {
+    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');
+    padding-bottom: 50px;
+}
 .main {
-    background-color: steelblue;
+    background-color: rgba(40, 102, 6, 0.95);
     width: 50%;
     margin: 30px auto;
     border: 1px solid #4b4a4a;
