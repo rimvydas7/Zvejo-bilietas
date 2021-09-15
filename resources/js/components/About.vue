@@ -31,7 +31,7 @@
                             <div @select="lake.name" class="lake">{{lake.name}}</div>
                         </div>
                     </div>
-                    <h3>Leidimo kaina - {{this.ticket.price}} Eur</h3>
+                    <h3>Leidimo kaina - {{this.ticket.price}}.00 €</h3>
 
                     <vue-qr :size=this.size :text=this.value :callback="test"></vue-qr>
                     <div class="pdf">
@@ -105,8 +105,7 @@ export default {
             Leidimas galioja :  ${this.ticket.days} diena(s)
             Meskeriu skaicius: ${this.ticket.quantity}
 
-        Leidimo kaina : ${this.ticket.price}.00 Eur`
-
+        Leidimo kaina : ${this.ticket.price}.00 €`
 
             pdf.text(text, 10, 10);
             pdf.save('info.pdf');

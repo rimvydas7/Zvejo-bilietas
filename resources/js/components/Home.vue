@@ -104,8 +104,7 @@ export default {
                     })
                     .then((res) => res.json())
                     .then((data) => {
-                        this.code = data.link
-                        this.$router.push('/about/' + this.code)
+                        this.$router.push('/pay/' + data.link)
 
                     });
             }

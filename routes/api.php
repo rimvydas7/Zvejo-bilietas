@@ -28,4 +28,3 @@ Route::post('/ticket', [TicketController::class, 'store'])->name('ticket.store')
 
 Route::get('/ticket/{link}', [TicketController::class, 'index'])->name('ticket.view');
 
-Route::get('/all', [TicketController::class, 'all'])->name('all');
