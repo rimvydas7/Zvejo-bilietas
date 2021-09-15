@@ -5,7 +5,7 @@
             <h1>Apmokejimas</h1>
             <p>Moketojo vardas : {{ticket.first_name}}</p>
             <p>Moketojo pavarde : {{ticket.last_name}}</p>
-            <p>Zvejybos data nuo : {{ticket.updated_at.replace('T', ' ').replace('.000000Z', '')}}</p>
+            <p>Zvejybos data nuo : {{ticket.date}}</p>
             <p>Zvejybos dienu skaicius : {{ticket.days}}</p>
             <p>Zvejybos meskeriu skaicius : {{ticket.quantity}}</p>
             <h3>Pasirinkite mokejimo buda :</h3>
@@ -61,7 +61,7 @@ export default {
 .image {
     background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');
     padding-bottom: 50px;
-    min-height: 100%;
+    height: 1000px;
 }
 .main {
     background-color: rgba(40, 102, 6, 0.95);

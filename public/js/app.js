@@ -2154,9 +2154,8 @@ __webpack_require__.r(__webpack_exports__);
       id = this.ticket.id;
     },
     downloadPDF: function downloadPDF() {
-      console.log(this.assignedLakes);
       var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_0__["default"]();
-      var text = "\n                        Moletu regiono \u017Evejo bilieto patvirtinimas\n\n                                 \u017Dvejo megejo bilietas\n\n        \u017Dvejo duomenys :\n\n            Vardas : ".concat(this.ticket.first_name, "\n            Pavarde : ").concat(this.ticket.last_name, "\n\n        Laikotarpis:\n\n            Leidimo isdavimo data :  ").concat(this.ticket.updated_at.replace('T', ' ').replace('.000000Z', ''), "\n            Leidimas galioja :  ").concat(this.ticket.days, " diena(s)\n            Meskeriu skaicius: ").concat(this.ticket.quantity, "\n\n        Leidimo kaina : ").concat(this.ticket.price, ".00 \u20AC");
+      var text = "\n                        Moletu regiono \u017Evejo bilieto patvirtinimas\n\n                                 \u017Dvejo megejo bilietas\n\n        \u017Dvejo duomenys :\n\n            Vardas : ".concat(this.ticket.first_name, "\n            Pavarde : ").concat(this.ticket.last_name, "\n\n        Laikotarpis:\n\n            Leidimo isdavimo data :  ").concat(this.ticket.date, "\n            Leidimas galioja :  ").concat(this.ticket.days, " diena(s)\n            Meskeriu skaicius: ").concat(this.ticket.quantity, "\n\n        Leidimo kaina : ").concat(this.ticket.price, ".00 \u20AC");
       pdf.text(text, 10, 10);
       pdf.save('info.pdf');
     },
@@ -2195,6 +2194,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Nav */ "./resources/js/components/Nav.vue");
+//
 //
 //
 //
@@ -6971,7 +6971,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.center[data-v-fb05e49c] {\n    text-align: center;\n}\n.flexas[data-v-fb05e49c] {\n    display: flex;\n}\n.space[data-v-fb05e49c] {\n    padding-left: 30px;\n}\n.image[data-v-fb05e49c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n}\n.main[data-v-fb05e49c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\n.lake[data-v-fb05e49c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    max-width: 40%;\n    text-align: center;\n    padding: 5px;\n    margin: 3px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.center[data-v-fb05e49c] {\n    text-align: center;\n}\n.container[data-v-fb05e49c] {\n    display: flex;\n}\n.space[data-v-fb05e49c] {\n    padding-left: 30px;\n}\n.image[data-v-fb05e49c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n    height: 1000px;\n}\n.main[data-v-fb05e49c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\n.lake[data-v-fb05e49c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    max-width: 40%;\n    text-align: center;\n    padding: 5px;\n    margin: 3px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -6995,7 +6995,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image[data-v-f2b6376c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n}\n.main[data-v-f2b6376c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\ninput[data-v-f2b6376c] {\n    width: 100%;\n}\n.lake[data-v-f2b6376c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    max-width: 10%;\n    text-align: center;\n    padding: 5px;\n    margin: 3px;\n    cursor: pointer;\n    font-weight: bold;\n}\n.lake[data-v-f2b6376c]:hover{\n    border: 1px solid white;\n    color: white;\n}\nbutton[data-v-f2b6376c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    padding: 10px 20px;\n    margin-top: 20px;\n    text-align: center;\n    justify-content: center;\n    cursor: pointer;\n}\n.redText[data-v-f2b6376c] {\n    color: #c23232;\n    font-weight: bold;\n    font-size: 30px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image[data-v-f2b6376c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n    height: 1000px;\n}\n.main[data-v-f2b6376c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\ninput[data-v-f2b6376c] {\n    width: 50%;\n    border-radius: 20px;\n    padding-left: 20px;\n    margin: 5px 20px;\n}\n.lake[data-v-f2b6376c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    text-align: center;\n    padding: 5px 10px;\n    margin: 3px;\n    cursor: pointer;\n    font-weight: bold;\n}\n.lake[data-v-f2b6376c]:hover{\n    border: 1px solid white;\n    color: white;\n}\nbutton[data-v-f2b6376c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    padding: 10px 20px;\n    margin-top: 20px;\n    text-align: center;\n    justify-content: center;\n    cursor: pointer;\n}\n.redText[data-v-f2b6376c] {\n    color: #c23232;\n    font-weight: bold;\n    font-size: 30px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7043,7 +7043,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image[data-v-326896e6] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n    min-height: 100%;\n}\n.main[data-v-326896e6] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n    height: 700px;\n}\nbutton[data-v-326896e6] {\n    border: 1px solid black;\n    border-radius: 20px;\n    padding: 10px 20px;\n    margin-top: 20px;\n    text-align: center;\n    justify-content: center;\n    cursor: pointer;\n}\nimg[data-v-326896e6] {\n    height: 40px;\n    width: 90px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.image[data-v-326896e6] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n    height: 1000px;\n}\n.main[data-v-326896e6] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n    height: 700px;\n}\nbutton[data-v-326896e6] {\n    border: 1px solid black;\n    border-radius: 20px;\n    padding: 10px 20px;\n    margin-top: 20px;\n    text-align: center;\n    justify-content: center;\n    cursor: pointer;\n}\nimg[data-v-326896e6] {\n    height: 40px;\n    width: 90px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41192,7 +41192,7 @@ var render = function() {
       _c("div", { staticClass: "main" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "flexas" }, [
+        _c("div", { staticClass: "container" }, [
           _c("div", [
             _c("h3", [_vm._v("Žvejo duomenys :")]),
             _vm._v(" "),
@@ -41206,14 +41206,7 @@ var render = function() {
             _vm._v(" "),
             _c("div", [
               _c("p", [
-                _vm._v(
-                  "Leidimo isdavimo data :  " +
-                    _vm._s(
-                      this.ticket.updated_at
-                        .replace("T", " ")
-                        .replace(".000000Z", "")
-                    )
-                )
+                _vm._v("Leidimo isdavimo data :  " + _vm._s(this.ticket.date))
               ]),
               _vm._v(" "),
               _c("p", [
@@ -41313,153 +41306,153 @@ var render = function() {
       [
         _c("Nav"),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "main" },
-          [
-            _c("h1", [_vm._v("Molėtų regiono žvejo bilieto užsakymas")]),
+        _c("div", { staticClass: "main" }, [
+          _c("h1", [_vm._v("Molėtų regiono žvejo bilieto užsakymas")]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Žvejo mėgėjo bilietas")]),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Žvejo duomenys :")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("label", [_vm._v("Vardas *")]),
             _vm._v(" "),
-            _c("h2", [_vm._v("Žvejo mėgėjo bilietas")]),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.first_name,
+                  expression: "first_name"
+                }
+              ],
+              attrs: { name: "first_name", placeholder: "Vardas" },
+              domProps: { value: _vm.first_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.first_name = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", [
+            _c("label", [_vm._v("Pavarde *")]),
             _vm._v(" "),
-            _c("h3", [_vm._v("Žvejo duomenys :")]),
-            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.last_name,
+                  expression: "last_name"
+                }
+              ],
+              attrs: { name: "last_name", placeholder: "Pavarde" },
+              domProps: { value: _vm.last_name },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.last_name = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              '"Vardas" ir "Pavardė" rašomas vardas ir pavardė iš didžiosios raidės vardininko linksniu pagal lietuvių kalbos taisykles (pvz. Vardenis Pavardenis).'
+            )
+          ]),
+          _vm._v(" "),
+          _c("h3", [_vm._v("Laikotarpis")]),
+          _vm._v(" "),
+          _c("div", [
             _c("div", [
-              _c("label", [_vm._v("Vardas *")]),
+              _c("label", [_vm._v("Nuo kada ketinate žvejoti *")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.first_name,
-                    expression: "first_name"
+                    value: _vm.date,
+                    expression: "date"
                   }
                 ],
-                attrs: { name: "first_name", placeholder: "Vardas" },
-                domProps: { value: _vm.first_name },
+                attrs: { type: "date", name: "date" },
+                domProps: { value: _vm.date },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.first_name = $event.target.value
+                    _vm.date = $event.target.value
                   }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("label", [_vm._v("Pavarde *")]),
+              _c("label", [_vm._v("Žvejybos dienu skaicius *")]),
               _vm._v(" "),
               _c("input", {
                 directives: [
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.last_name,
-                    expression: "last_name"
+                    value: _vm.days,
+                    expression: "days"
                   }
                 ],
-                attrs: { name: "last_name", placeholder: "Pavarde" },
-                domProps: { value: _vm.last_name },
+                attrs: { type: "number", name: "days" },
+                domProps: { value: _vm.days },
                 on: {
                   input: function($event) {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.last_name = $event.target.value
+                    _vm.days = $event.target.value
                   }
                 }
               })
             ]),
             _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                '"Vardas" ir "Pavardė" rašomas vardas ir pavardė iš didžiosios raidės vardininko linksniu pagal lietuvių kalbos taisykles (pvz. Vardenis Pavardenis).'
-              )
-            ]),
-            _vm._v(" "),
-            _c("h3", [_vm._v("Laikotarpis")]),
-            _vm._v(" "),
             _c("div", [
-              _c("div", [
-                _c("label", [_vm._v("Nuo kada ketinate žvejoti *")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.date,
-                      expression: "date"
-                    }
-                  ],
-                  attrs: { type: "date", name: "date" },
-                  domProps: { value: _vm.date },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.date = $event.target.value
-                    }
-                  }
-                })
-              ]),
+              _c("label", [_vm._v("Meskeriu skaicius *")]),
               _vm._v(" "),
-              _c("div", [
-                _c("label", [_vm._v("Žvejybos dienu skaicius *")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.days,
-                      expression: "days"
-                    }
-                  ],
-                  attrs: { type: "number", name: "days" },
-                  domProps: { value: _vm.days },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.days = $event.target.value
-                    }
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.quantity,
+                    expression: "quantity"
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("label", [_vm._v("Meskeriu skaicius *")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.quantity,
-                      expression: "quantity"
+                ],
+                attrs: { type: "number", name: "quantity" },
+                domProps: { value: _vm.quantity },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  attrs: { type: "number", name: "quantity" },
-                  domProps: { value: _vm.quantity },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.quantity = $event.target.value
-                    }
+                    _vm.quantity = $event.target.value
                   }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("h2", [_vm._v("Pasirinkite ežerus *")]),
-            _vm._v(" "),
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("h2", [_vm._v("Pasirinkite ežerus *")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex" },
             _vm._l(_vm.lakes, function(lake, index) {
               return _c("div", { key: index }, [
                 _c(
@@ -41477,25 +41470,25 @@ var render = function() {
                 )
               ])
             }),
-            _vm._v(" "),
-            _c("p", { staticClass: "redText" }, [_vm._v(_vm._s(_vm.error))]),
-            _vm._v(" "),
-            _c("div", [
-              _c(
-                "button",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.send()
-                    }
+            0
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "redText" }, [_vm._v(_vm._s(_vm.error))]),
+          _vm._v(" "),
+          _c("div", [
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.send()
                   }
-                },
-                [_vm._v("Toliau")]
-              )
-            ])
-          ],
-          2
-        )
+                }
+              },
+              [_vm._v("Toliau")]
+            )
+          ])
+        ])
       ],
       1
     )
@@ -41566,14 +41559,7 @@ var render = function() {
         _vm._v(" "),
         _c("p", [_vm._v("Moketojo pavarde : " + _vm._s(_vm.ticket.last_name))]),
         _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Zvejybos data nuo : " +
-              _vm._s(
-                _vm.ticket.updated_at.replace("T", " ").replace(".000000Z", "")
-              )
-          )
-        ]),
+        _c("p", [_vm._v("Zvejybos data nuo : " + _vm._s(_vm.ticket.date))]),
         _vm._v(" "),
         _c("p", [
           _vm._v("Zvejybos dienu skaicius : " + _vm._s(_vm.ticket.days))

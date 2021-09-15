@@ -8,7 +8,7 @@
                 <h2>Žvejo mėgėjo bilietas</h2>
             </div>
 
-            <div class="flexas">
+            <div class="container">
                 <div>
                     <h3>Žvejo duomenys :</h3>
                     <div>
@@ -18,7 +18,7 @@
 
                     <h3>Laikotarpis</h3>
                     <div>
-                        <p>Leidimo isdavimo data :  {{this.ticket.updated_at.replace('T', ' ').replace('.000000Z', '')}}</p>
+                        <p>Leidimo isdavimo data :  {{this.ticket.date}}</p>
                         <p>Leidimas galioja :  {{this.ticket.days}} diena(s)</p>
                         <p>Meskeriu skaicius: {{this.ticket.quantity}}</p>
                     </div>
@@ -85,10 +85,7 @@ export default {
             id = this.ticket.id;
         },
         downloadPDF() {
-
-            console.log(this.assignedLakes);
             let pdf = new jsPDF();
-
             let text = `
                         Moletu regiono žvejo bilieto patvirtinimas
 
@@ -101,7 +98,7 @@ export default {
 
         Laikotarpis:
 
-            Leidimo isdavimo data :  ${this.ticket.updated_at.replace('T', ' ').replace('.000000Z', '')}
+            Leidimo isdavimo data :  ${this.ticket.date}
             Leidimas galioja :  ${this.ticket.days} diena(s)
             Meskeriu skaicius: ${this.ticket.quantity}
 
@@ -135,7 +132,7 @@ export default {
 .center {
     text-align: center;
 }
-.flexas {
+.container {
     display: flex;
 }
 .space {
@@ -144,6 +141,7 @@ export default {
 .image {
     background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');
     padding-bottom: 50px;
+    height: 1000px;
 }
 .main {
     background-color: rgba(40, 102, 6, 0.95);
@@ -152,6 +150,7 @@ export default {
     border: 1px solid #4b4a4a;
     border-radius: 20px;
     padding: 30px;
+
 }
 .lake {
     border: 1px solid black;

@@ -32,10 +32,11 @@
                 </div>
                 <h2>Pasirinkite ežerus *</h2>
 
+                <div class="flex">
                     <div v-for="(lake, index) in lakes" :key="index">
                         <div class="lake" @click="getId(lake)"  :value="lake.id">{{ lake.name }}</div>
                     </div>
-
+                </div>
                 <p class="redText">{{error}}</p>
 
                 <div><button @click="send()">Toliau</button></div>
@@ -117,6 +118,7 @@ export default {
 .image {
     background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');
     padding-bottom: 50px;
+    height: 1000px;
 }
 .main {
     background-color: rgba(40, 102, 6, 0.95);
@@ -127,14 +129,16 @@ export default {
     padding: 30px;
 }
 input {
-    width: 100%;
+    width: 50%;
+    border-radius: 20px;
+    padding-left: 20px;
+    margin: 5px 20px;
 }
 .lake {
     border: 1px solid black;
     border-radius: 20px;
-    max-width: 10%;
     text-align: center;
-    padding: 5px;
+    padding: 5px 10px;
     margin: 3px;
     cursor: pointer;
     font-weight: bold;
