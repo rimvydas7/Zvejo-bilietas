@@ -2107,6 +2107,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2142,7 +2152,6 @@ __webpack_require__.r(__webpack_exports__);
     test: function test(url, id) {
       url = this.value;
       id = this.ticket.id;
-      console.log(url, id);
     },
     downloadPDF: function downloadPDF() {
       console.log(this.assignedLakes);
@@ -6886,7 +6895,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.image[data-v-fb05e49c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n}\n.main[data-v-fb05e49c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\n.lake[data-v-fb05e49c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    max-width: 10%;\n    text-align: center;\n    padding: 5px;\n    margin: 3px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.center[data-v-fb05e49c] {\n    text-align: center;\n}\n.flexas[data-v-fb05e49c] {\n    display: flex;\n}\n.space[data-v-fb05e49c] {\n    padding-left: 30px;\n}\n.image[data-v-fb05e49c] {\n    background-image: url('https://i.natgeofe.com/n/3f2a2e55-47f9-4dda-9f03-bbbd4e9d343e/Trav%20Lake%20GettyImages-909708218.jpg');\n    padding-bottom: 50px;\n}\n.main[data-v-fb05e49c] {\n    background-color: rgba(40, 102, 6, 0.95);\n    width: 50%;\n    margin: 30px auto;\n    border: 1px solid #4b4a4a;\n    border-radius: 20px;\n    padding: 30px;\n}\n.lake[data-v-fb05e49c] {\n    border: 1px solid black;\n    border-radius: 20px;\n    max-width: 40%;\n    text-align: center;\n    padding: 5px;\n    margin: 3px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40963,88 +40972,101 @@ var render = function() {
     [
       _c("Nav"),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "main" },
-        [
-          _c("h1", [_vm._v("Molėtų regiono žvejo bilieto patvirtinimas")]),
-          _vm._v(" "),
-          _c("h2", [_vm._v("Žvejo mėgėjo bilietas")]),
-          _vm._v(" "),
-          _c("h3", [_vm._v("Žvejo duomenys :")]),
-          _vm._v(" "),
+      _c("div", { staticClass: "main" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "flexas" }, [
           _c("div", [
-            _c("p", [_vm._v("Vardas : " + _vm._s(this.ticket.first_name))]),
+            _c("h3", [_vm._v("Žvejo duomenys :")]),
             _vm._v(" "),
-            _c("p", [_vm._v("Pavarde : " + _vm._s(this.ticket.last_name))])
-          ]),
-          _vm._v(" "),
-          _c("h3", [_vm._v("Laikotarpis")]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [
-              _vm._v(
-                "Leidimo isdavimo data :  " +
-                  _vm._s(
-                    this.ticket.updated_at
-                      .replace("T", " ")
-                      .replace(".000000Z", "")
-                  )
-              )
+            _c("div", [
+              _c("p", [_vm._v("Vardas : " + _vm._s(this.ticket.first_name))]),
+              _vm._v(" "),
+              _c("p", [_vm._v("Pavarde : " + _vm._s(this.ticket.last_name))])
             ]),
             _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "Leidimas galioja :  " + _vm._s(this.ticket.days) + " diena(s)"
-              )
-            ]),
+            _c("h3", [_vm._v("Laikotarpis")]),
             _vm._v(" "),
-            _c("p", [
-              _vm._v("Meskeriu skaicius: " + _vm._s(this.ticket.quantity))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("h2", [_vm._v("Pasirinkti ežerai : ")]),
-          _vm._v(" "),
-          _vm._l(_vm.lakes, function(lake, index) {
-            return _c("div", { key: index }, [
-              lake.id === _vm.assignedLakes.lake_id
-                ? _c("div", [
-                    _c(
-                      "div",
-                      { staticClass: "lake", on: { select: lake.name } },
-                      [_vm._v(_vm._s(lake.name))]
+            _c("div", [
+              _c("p", [
+                _vm._v(
+                  "Leidimo isdavimo data :  " +
+                    _vm._s(
+                      this.ticket.updated_at
+                        .replace("T", " ")
+                        .replace(".000000Z", "")
                     )
-                  ])
-                : _vm._e()
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Leidimas galioja :  " +
+                    _vm._s(this.ticket.days) +
+                    " diena(s)"
+                )
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v("Meskeriu skaicius: " + _vm._s(this.ticket.quantity))
+              ])
             ])
-          }),
-          _vm._v(" "),
-          _c("h3", [
-            _vm._v("Leidimo kaina - " + _vm._s(this.ticket.price) + " Eur")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "pdf" }, [
-            _c("button", { on: { click: _vm.downloadPDF } }, [
-              _vm._v("Atsisiusti PDF faila")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("vue-qr", {
-            attrs: {
-              size: this.size,
-              text: this.ticket.link,
-              callback: _vm.test
-            }
-          })
-        ],
-        2
-      )
+          _c(
+            "div",
+            { staticClass: "space" },
+            [
+              _c("h2", [_vm._v("Pasirinkti ežerai : ")]),
+              _vm._v(" "),
+              _vm._l(_vm.lakes, function(lake, index) {
+                return _c("div", { key: index }, [
+                  lake.id === _vm.assignedLakes.lake_id
+                    ? _c("div", [
+                        _c(
+                          "div",
+                          { staticClass: "lake", on: { select: lake.name } },
+                          [_vm._v(_vm._s(lake.name))]
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              }),
+              _vm._v(" "),
+              _c("h3", [
+                _vm._v("Leidimo kaina - " + _vm._s(this.ticket.price) + " Eur")
+              ]),
+              _vm._v(" "),
+              _c("vue-qr", {
+                attrs: { size: this.size, text: this.value, callback: _vm.test }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "pdf" }, [
+                _c("button", { on: { click: _vm.downloadPDF } }, [
+                  _vm._v("Atsisiusti PDF faila")
+                ])
+              ])
+            ],
+            2
+          )
+        ])
+      ])
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "center" }, [
+      _c("h1", [_vm._v("Molėtų regiono žvejo bilieto patvirtinimas")]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Žvejo mėgėjo bilietas")])
+    ])
+  }
+]
 render._withStripped = true
 
 
